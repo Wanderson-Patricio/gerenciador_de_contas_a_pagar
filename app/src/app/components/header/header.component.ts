@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  constructor(public router: Router) { }
 
-  constructor() { }
+  isNotHomepage(): boolean {
+    return !['/', '/homepage'].includes(this.router.url);
+  }
 
   ngOnInit(): void {
   }

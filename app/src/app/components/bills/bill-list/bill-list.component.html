@@ -1,1 +1,30 @@
-<p>bill-list works!</p>
+<div class="container mt-5 box-shadow">
+  <h2 class="mb-4">Lista de Categorias</h2>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th class="rem15">ID</th>
+        <th class="rem15">Descrição</th>
+        <th class="rem15">Valor</th>
+        <th class="rem15">Situação</th>
+        <th class="rem15">Pagamento</th>
+        <th class="rem15">Vencimento</th>
+        <th class="rem15">Categoria</th>
+        <th class="rem15">Observações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bill of bills">
+        <td class="rem15">{{ bill.id }}</td>
+        <td class="rem15">{{ bill.bill_description }}</td>
+        <td class="rem15">R$ {{ bill.bill_value.toFixed(2) }}</td>
+        <td class="rem15">{{ bill.is_paid ? 'Pago' : 'A pagar' }}</td>
+        <td class="rem15">{{ bill.payment_date ? bill.payment_date : 'N/A' }}</td>
+        <td class="rem15">{{ bill.due_date }}</td>
+        <td class="rem15">{{ bill.category_id }}</td>
+        <td class="rem15">{{ bill.observations ? bill.observations : '-' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

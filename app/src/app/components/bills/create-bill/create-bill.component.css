@@ -1,8 +1,5 @@
-.container {
-    background-color: var(--forms-color);
+.container{
     width: 60%;
-    padding: 10px 15px 5px 15px;
-    border-radius: 10px;
 }
 
 .mb-4 {

@@ -13,6 +13,7 @@ import { UpdateBillComponent } from './components/bills/update-bill/update-bill.
 import { DeleteBillComponent } from './components/bills/delete-bill/delete-bill.component';
 import { BillListComponent } from './components/bills/bill-list/bill-list.component';
 import { CategoryListComponent } from './components/categories/category-list/category-list.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CategoryListComponent } from './components/categories/category-list/cat
     DeleteBillComponent,
     BillListComponent,
     CategoryListComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,

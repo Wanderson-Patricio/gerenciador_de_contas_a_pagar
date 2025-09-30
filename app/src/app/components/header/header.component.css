@@ -1,0 +1,44 @@
+.container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 0.1fr 1fr;
+  grid-template-rows: 0.1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 5px 5px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "back-button-div header-name"
+}
+
+.back-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: back-button-div;
+}
+
+.back-button {
+  font-size: 1.5rem;
+  color: #252525;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 2px 0;
+}
+
+.back-button-image {
+  height: 4rem;
+  background: none;
+}
+
+.header-name {
+  grid-area: header-name;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 4.5rem;
+}
+

@@ -1,0 +1,25 @@
+version: "3"
+services:
+  api:
+    image: bill_api:1.0.0
+    container_name: bill_api_container
+    networks:
+      - net_bill_manager
+    ports:
+      - 3000:3000
+    volumes:
+      - ./api/db.json:/api/db.json
+  
+  # app:
+  #   image: bill_app:1.0.0
+  #   container_name: bill_app_container
+  #   networks:
+  #     - net_bill_manager
+  #   ports:
+  #     - 8080:8080
+  #   depends_on:
+  #     - api
+
+networks:
+  net_bill_manager:
+    driver: bridge

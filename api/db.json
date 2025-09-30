@@ -1,0 +1,38 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "category_name": "internet"
+    },
+    {
+      "id": 2,
+      "category_name": "energia"
+    },
+    {
+      "id": 3,
+      "category_name": "água"
+    },
+    {
+      "id": 4,
+      "category_name": "aluguel"
+    },
+    {
+	"id": 5,
+	"category_name": "educação"
+}
+  ],
+  "bills": [
+    {
+      "id": 1,
+      "bill_description": "Aluguel",
+      "bill_value": 900.0,
+      "is_paid": false,
+      "payment_date": null,
+      "due_date": "15-10-2025",
+      "reference_month": 10,
+      "reference_year": 2025,
+      "category_id": 4,
+      "observations": ""
+    }
+  ]
+}

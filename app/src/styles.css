@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+:root {
+    --background-color: rgb(35, 109, 194);
+    --forms-color: rgba(235, 229, 229, 0.952);
+}
+
+body {
+    font-family: "Parkinsans", sans-serif;
+    background-color: var(--background-color);
+}
+
+button:hover{
+    transform: scale(1.05);
+}
+
+.box-shadow {
+    border: 2px solid #252525;
+    box-shadow: 3px 3px #252525;
+}
+
+.center {
+    margin: 20px 0 0 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

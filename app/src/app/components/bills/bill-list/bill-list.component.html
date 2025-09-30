@@ -16,14 +16,14 @@
     </thead>
     <tbody>
       <tr *ngFor="let bill of bills">
-        <td class="rem15">{{ bill.id }}</td>
-        <td class="rem15">{{ bill.bill_description }}</td>
-        <td class="rem15">R$ {{ bill.bill_value.toFixed(2) }}</td>
-        <td class="rem15">{{ bill.is_paid ? 'Pago' : 'A pagar' }}</td>
-        <td class="rem15">{{ bill.payment_date ? bill.payment_date : 'N/A' }}</td>
-        <td class="rem15">{{ bill.due_date }}</td>
-        <td class="rem15">{{ bill.category_id }}</td>
-        <td class="rem15">{{ bill.observations ? bill.observations : '-' }}</td>
+        <td class="rem15" [ngClass]="billColor(bill)">{{ bill.id }}</td>
+        <td class="rem15" [ngClass]="billColor(bill)">{{ bill.bill_description }}</td>
+        <td class="rem15" [ngClass]="billColor(bill)">R$ {{ bill.bill_value.toFixed(2) }}</td>
+        <td class="rem15" [ngClass]="billColor(bill)">{{ bill.is_paid ? 'Pago' : 'A pagar' }}</td>
+        <td class="rem15" [ngClass]="billColor(bill)">{{ bill.payment_date ? bill.payment_date : 'N/A' }}</td>
+        <td class="rem15" [ngClass]="billColor(bill)">{{ bill.due_date }}</td>
+        <td class="rem15" [ngClass]="billColor(bill)">{{ bill.category_id }}</td>
+        <td class="rem15" [ngClass]="billColor(bill)">{{ bill.observations ? bill.observations : '-' }}</td>
       </tr>
     </tbody>
   </table>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Bill } from 'src/app/models/bill.model';
 
 @Component({
@@ -7,7 +7,7 @@ import { Bill } from 'src/app/models/bill.model';
   styleUrls: ['./create-bill.component.css'],
 })
 export class CreateBillComponent implements OnInit {
-  bill: Bill = {} as Bill;
+  @Input() bill: Bill = {} as Bill;
   category_id: string = '';
 
   createBill() {

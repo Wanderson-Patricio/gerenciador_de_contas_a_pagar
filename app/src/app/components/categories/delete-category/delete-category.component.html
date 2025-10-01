@@ -1,1 +1,64 @@
-<p>delete-category works!</p>
+<div class="container mt-5 box-shadow">
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th class="rem15">ID</th>
+        <th class="rem15">Nome da Categoria</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categories">
+        <td class="rem15">{{ category.id }}</td>
+        <td class="rem15">{{ category.category_name }}</td>
+        <td>
+            <div class="mb-3 btn-div">
+                <button (click)="confirmDelete(category)" class="btn btn-primary box-shadow">
+                    <img class="icon" src="../../../../assets/trash_can_icon.png" alt="trash_can_icon">
+                </button>
+            </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="limitSelector">Itens por página:</label>
+        <select
+          id="limitSelector"
+          class="form-control dark bold"
+          [(ngModel)]="limit"
+          (change)="onLimitChange()"
+        >
+          <option [ngValue]="5">5</option>
+          <option [ngValue]="10">10</option>
+          <option [ngValue]="20">20</option>
+        </select>
+      </div>
+
+      <div
+        class="pagination-controls d-flex justify-content-center col-md-6 mt-3"
+      >
+        <button
+          class="btn btn-primary box-shadow me-2 reduced-button"
+          (click)="previousPage()"
+          [disabled]="currentPage === 1"
+        >
+          Anterior
+        </button>
+
+        <span class="p-2"> Página {{ currentPage }} </span>
+
+        <button
+          class="btn btn-primary box-shadow reduced-button"
+          (click)="nextPage()"
+          [disabled]="!hasMorePages"
+        >
+          Próxima
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

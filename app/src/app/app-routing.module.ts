@@ -5,6 +5,10 @@ import { CreateBillComponent } from './components/bills/create-bill/create-bill.
 import { CategoryListComponent } from './components/categories/category-list/category-list.component';
 import { CreateCategoryComponent } from './components/categories/create-category/create-category.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { UpdateBillComponent } from './components/bills/update-bill/update-bill.component';
+import { DeleteBillComponent } from './components/bills/delete-bill/delete-bill.component';
+import { UpdateCategoryComponent } from './components/categories/update-category/update-category.component';
+import { DeleteCategoryComponent } from './components/categories/delete-category/delete-category.component';
 
 const routes: Routes = [
   {
@@ -25,12 +29,28 @@ const routes: Routes = [
     component: CreateBillComponent,
   },
   {
+    path: 'update-bill',
+    component: UpdateBillComponent
+  },
+  {
+    path: 'delete-bill',
+    component: DeleteBillComponent
+  },
+  {
     path: 'categories',
     component: CategoryListComponent,
   },
   {
     path: 'add-category',
     component: CreateCategoryComponent,
+  },
+  {
+    path: 'update-category',
+    component: UpdateCategoryComponent,
+  },
+  {
+    path: 'delete-category',
+    component: DeleteCategoryComponent,
   },
 ];
 

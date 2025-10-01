@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Bill } from 'src/app/models/bill.model';
 
 @Component({
@@ -7,7 +7,7 @@ import { Bill } from 'src/app/models/bill.model';
   styleUrls: ['./bill-list.component.css'],
 })
 export class BillListComponent implements OnInit {
-  bills: Bill[] = [
+  @Input() bills: Bill[] = [
     {
       id: 1,
       bill_description: 'Aluguel',

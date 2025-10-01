@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
+import { CategoryService } from 'src/app/services/category/category.service';
 
 @Component({
   selector: 'app-create-category',
@@ -7,13 +9,16 @@ import { Category } from 'src/app/models/category.model';
   styleUrls: ['./create-category.component.css'],
 })
 export class CreateCategoryComponent implements OnInit {
-  category: Category = {} as Category;
+  @Input() category: Category = {} as Category;
 
   createCategory(){
-    alert(`Categoria: ${this.category.category_name}`)
+    this.service.post(this.category).subscribe(() => {
+      alert('Categoria adicionada com sucesso.')
+      this.router.navigate(['/categories'])
+    });
   }
 
-  constructor() {}
+  constructor(private service: CategoryService, private router: Router) {}
 
   ngOnInit(): void {}
 }

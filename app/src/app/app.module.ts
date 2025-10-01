@@ -14,6 +14,7 @@ import { DeleteBillComponent } from './components/bills/delete-bill/delete-bill.
 import { BillListComponent } from './components/bills/bill-list/bill-list.component';
 import { CategoryListComponent } from './components/categories/category-list/category-list.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,14 +28,15 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     DeleteBillComponent,
     BillListComponent,
     CategoryListComponent,
-    HomepageComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -6,12 +6,20 @@
       <tr>
         <th class="rem15">ID</th>
         <th class="rem15">Nome da Categoria</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let category of categories">
         <td class="rem15">{{ category.id }}</td>
         <td class="rem15">{{ category.category_name }}</td>
+        <td>
+            <div class="mb-3 btn-div" *ngIf="imgSource!==''">
+                <button (click)="executeAction(category)" class="btn btn-primary box-shadow">
+                    <img class="icon" [src]="imgSource" alt="icon">
+                </button>
+            </div>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -56,3 +64,4 @@
     </div>
   </div>
 </div>
+

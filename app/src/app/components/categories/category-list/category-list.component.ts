@@ -17,7 +17,9 @@ export class CategoryListComponent implements OnInit {
   // Flag para controlar se há mais dados para carregar
   hasMorePages: boolean = true;
 
-  constructor(private service: CategoryService) {}
+  @Input() imgSource: string = '';
+
+  constructor(public service: CategoryService) {}
 
   ngOnInit(): void {
     this.loadCategories();
@@ -53,4 +55,6 @@ export class CategoryListComponent implements OnInit {
     this.currentPage = 1; // Reseta a página para a primeira
     this.loadCategories(); // Recarrega a lista com o novo limite
   }
+
+  executeAction(category: Category) {}
 }

@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog'; // Importação corrigida
+import { Component } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { CategoryListComponent } from '../category-list/category-list.component';

@@ -23,6 +23,10 @@
     {
       "category_name": "educação",
       "id": 7
+    },
+    {
+      "category_name": "eventuais",
+      "id": 8
     }
   ],
   "bills": [
@@ -40,7 +44,7 @@
     },
     {
       "bill_description": "Mensalidade Estácio",
-      "bill_value": "192",
+      "bill_value": 192,
       "due_date": "2025-10-10",
       "observations": "Mês de Outubro",
       "category_id": 7,
@@ -52,25 +56,15 @@
     },
     {
       "bill_description": "Conta de água",
-      "bill_value": 38.62,
+      "bill_value": 38.8,
       "due_date": "2025-10-08",
       "category_id": 3,
       "is_paid": false,
       "payment_date": null,
       "reference_month": 10,
       "reference_year": 2025,
-      "id": 3
-    },
-    {
-      "bill_value": 192,
-      "bill_description": "teste",
-      "due_date": "2025-10-11",
-      "category_id": 2,
-      "is_paid": false,
-      "payment_date": null,
-      "reference_month": 10,
-      "reference_year": 2025,
-      "id": 4
+      "id": 3,
+      "category_name": "água"
     }
   ]
 }

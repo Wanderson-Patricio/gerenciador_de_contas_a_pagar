@@ -46,3 +46,7 @@ button:hover{
     display: flex;
     justify-content: center;
 }
+
+.dark{
+    background-color: rgb(169, 167, 167);
+}

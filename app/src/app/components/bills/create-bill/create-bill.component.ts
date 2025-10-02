@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Bill } from 'src/app/models/bill.model';
 import { Category } from 'src/app/models/category.model';
 import { BillService } from 'src/app/services/bill/bill.service';
@@ -25,10 +26,11 @@ export class CreateBillComponent implements OnInit {
 
     this.service.post(this.bill).subscribe(() => {
       alert('Conta cadastrada com sucesso');
+      this.router.navigate(['/bills'])
     })
   }
 
-  constructor(public service: BillService, public catService: CategoryService) {}
+  constructor(private service: BillService, private catService: CategoryService, private router: Router) {}
 
   ngOnInit(): void {
     this.catService.list(1, 100).subscribe((categories) => {

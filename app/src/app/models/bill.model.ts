@@ -9,4 +9,5 @@ export interface Bill {
   reference_year: number;
   category_id: number;
   observations: string;
+  category_name?: string;
 }

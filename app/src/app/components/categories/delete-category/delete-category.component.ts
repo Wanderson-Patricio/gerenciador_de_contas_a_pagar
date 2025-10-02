@@ -6,10 +6,12 @@ import { CategoryListComponent } from '../category-list/category-list.component'
 
 @Component({
   selector: 'app-delete-category',
-  templateUrl: './delete-category.component.html',
+  templateUrl: '../category-list/category-list.component.html',
   styleUrls: ['./delete-category.component.css'],
 })
 export class DeleteCategoryComponent extends CategoryListComponent {
+
+  override imgSource: string = "../../../../assets/trash_can_icon.png"
 
   constructor(service: CategoryService){
     super(service);

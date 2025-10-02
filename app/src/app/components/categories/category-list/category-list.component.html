@@ -14,11 +14,14 @@
         <td class="rem15">{{ category.id }}</td>
         <td class="rem15">{{ category.category_name }}</td>
         <td>
-            <div class="mb-3 btn-div" *ngIf="imgSource!==''">
-                <button (click)="executeAction(category)" class="btn btn-primary box-shadow">
-                    <img class="icon" [src]="imgSource" alt="icon">
-                </button>
-            </div>
+          <div class="mb-3 btn-div" *ngIf="imgSource !== ''">
+            <button
+              (click)="executeAction(category)"
+              class="btn btn-primary box-shadow"
+            >
+              <img class="icon" [src]="imgSource" alt="icon" />
+            </button>
+          </div>
         </td>
       </tr>
     </tbody>
@@ -64,4 +67,3 @@
     </div>
   </div>
 </div>
-

@@ -5,7 +5,7 @@ import { Category } from 'src/app/models/category.model';
 
 @Component({
   selector: 'app-update-category',
-  templateUrl: './update-category.component.html',
+  templateUrl: '../category-list/category-list.component.html',
   styleUrls: ['./update-category.component.css']
 })
 export class UpdateCategoryComponent extends CategoryListComponent {
@@ -16,7 +16,14 @@ export class UpdateCategoryComponent extends CategoryListComponent {
    }
 
   override executeAction(category: Category){
-    alert('Atualização')
+    let result = prompt('Qual o novo nome para a categoria?', category.category_name);
+
+    if(result !== null){
+      category.category_name = result;
+      this.service.update(category).subscribe(() => {
+        alert('Categoria atualizada com sucesso')
+      })
+    }
   }
 
 }

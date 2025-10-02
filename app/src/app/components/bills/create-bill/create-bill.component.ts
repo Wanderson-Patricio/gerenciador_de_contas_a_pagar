@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Bill } from 'src/app/models/bill.model';
+import { Category } from 'src/app/models/category.model';
+import { BillService } from 'src/app/services/bill/bill.service';
+import { CategoryService } from 'src/app/services/category/category.service';
 
 @Component({
   selector: 'app-create-bill',
@@ -9,6 +12,8 @@ import { Bill } from 'src/app/models/bill.model';
 export class CreateBillComponent implements OnInit {
   @Input() bill: Bill = {} as Bill;
   category_id: string = '';
+  categories: Category[] = [];
+  maxCategories: number = 100;
 
   createBill() {
     this.bill.category_id = parseInt(this.category_id);
@@ -18,10 +23,16 @@ export class CreateBillComponent implements OnInit {
     this.bill.reference_month = parseInt(month);
     this.bill.reference_year = parseInt(year);
 
-    alert(JSON.stringify(this.bill));
+    this.service.post(this.bill).subscribe(() => {
+      alert('Conta cadastrada com sucesso');
+    })
   }
 
-  constructor() {}
+  constructor(public service: BillService, public catService: CategoryService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.catService.list(1, 100).subscribe((categories) => {
+      this.categories = categories;
+    })
+  }
 }

@@ -36,3 +36,13 @@ button:hover{
 .rem15{
     font-size: 1.5rem;
 }
+
+.icon{
+    width: 2rem;
+    aspect-ratio: 1/1;
+}
+
+.btn-div{
+    display: flex;
+    justify-content: center;
+}

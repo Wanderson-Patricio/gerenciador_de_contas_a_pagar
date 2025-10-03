@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { forkJoin, map, switchMap } from 'rxjs';
 import { Bill } from 'src/app/models/bill.model';
+import { Category } from 'src/app/models/category.model';
+import { Query } from 'src/app/models/query.model';
 import { BillService } from 'src/app/services/bill/bill.service';
 import { CategoryService } from 'src/app/services/category/category.service';
 
@@ -13,25 +16,34 @@ export class BillListComponent implements OnInit {
   @Input() bills: Bill[] = [];
   currentPage: number = 1;
   limit: number = 5;
+  query: Query = {} as Query;
+  isFilterApplied: boolean = false;
 
   // Flag para controlar se há mais dados para carregar
   hasMorePages: boolean = true;
+
+  categories: Category[] = [];
 
   @Input() imgSource: string = '';
 
   constructor(
     public service: BillService,
-    public catService: CategoryService
+    public catService: CategoryService,
+    public router: Router
   ) {}
 
   ngOnInit(): void {
+    this.catService.list(1, 100).subscribe((categories) => {
+      this.categories = categories;
+    });
     this.loadBills();
   }
 
   // Método centralizado para carregar os dados
   loadBills(): void {
+    const query = this.isFilterApplied ? this.query : {};
     this.service
-      .list(this.currentPage, this.limit)
+      .list(this.currentPage, this.limit, query)
       .pipe(
         // 1. Recebe a lista de contas (bills)
         switchMap((bills: Bill[]) => {
@@ -93,5 +105,18 @@ export class BillListComponent implements OnInit {
 
   billColor(bill: Bill): string {
     return bill.is_paid ? 'green' : 'red';
+  }
+
+  applyFilters(): void {
+    this.isFilterApplied = true;
+    this.loadBills();
+  }
+
+  showPaidFilter(): boolean {
+    return this.router.url !== '/update-bill';
+  }
+
+  showFilters(): boolean{
+    return this.router.url !== '/unpaid-list'
   }
 }

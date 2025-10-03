@@ -11,10 +11,16 @@ export class BillService {
   private readonly apiUrl: string = environment.apiUrl + '/bills';
   constructor(private http: HttpClient) {}
 
-  list(page: number = 1, limit: number = 5): Observable<Bill[]> {
-    const params = new HttpParams()
+  list(page: number = 1, limit: number = 5, query: any = {}): Observable<Bill[]> {
+    let params = new HttpParams()
       .set('_page', page.toString())
-      .set('_limit', limit.toString());
+      .set('_limit', limit.toString())
+
+    for(const key in query){
+      if(query.hasOwnProperty(key)){
+        params = params.set(key, query[key].toString())
+      }
+    }
 
     return this.http.get<Bill[]>(this.apiUrl, { params });
   }

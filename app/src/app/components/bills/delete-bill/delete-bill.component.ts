@@ -3,6 +3,7 @@ import { BillListComponent } from '../bill-list/bill-list.component';
 import { BillService } from 'src/app/services/bill/bill.service';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { Bill } from 'src/app/models/bill.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete-bill',
@@ -12,8 +13,12 @@ import { Bill } from 'src/app/models/bill.model';
 export class DeleteBillComponent extends BillListComponent {
   override imgSource: string = '../../../../assets/trash_can_icon.png';
 
-  constructor(service: BillService, catService: CategoryService) {
-    super(service, catService);
+  constructor(
+    service: BillService,
+    catService: CategoryService,
+    router: Router
+  ) {
+    super(service, catService, router);
   }
 
   override executeAction(bill: Bill): void {

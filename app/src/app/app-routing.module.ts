@@ -9,6 +9,8 @@ import { UpdateBillComponent } from './components/bills/update-bill/update-bill.
 import { DeleteBillComponent } from './components/bills/delete-bill/delete-bill.component';
 import { UpdateCategoryComponent } from './components/categories/update-category/update-category.component';
 import { DeleteCategoryComponent } from './components/categories/delete-category/delete-category.component';
+import { UnpaidListComponent } from './components/unpaid-list/unpaid-list.component';
+import { AnaliseComponent } from './components/analise/analise.component';
 
 const routes: Routes = [
   {
@@ -52,6 +54,14 @@ const routes: Routes = [
     path: 'delete-category',
     component: DeleteCategoryComponent,
   },
+  {
+    path: 'unpaid-list',
+    component: UnpaidListComponent
+  },
+  {
+    path: 'analise',
+    component: AnaliseComponent
+  }
 ];
 
 @NgModule({

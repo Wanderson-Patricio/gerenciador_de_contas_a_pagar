@@ -27,6 +27,10 @@
     {
       "category_name": "eventuais",
       "id": 8
+    },
+    {
+      "category_name": "fitness",
+      "id": 9
     }
   ],
   "bills": [
@@ -34,13 +38,14 @@
       "id": 1,
       "bill_description": "Aluguel",
       "bill_value": 900,
-      "is_paid": false,
-      "payment_date": null,
+      "is_paid": true,
+      "payment_date": "2025-10-03",
       "due_date": "15-10-2025",
       "reference_month": 10,
       "reference_year": 2025,
       "category_id": 4,
-      "observations": ""
+      "observations": "",
+      "category_name": "aluguel"
     },
     {
       "bill_description": "Mensalidade Estácio",
@@ -48,23 +53,47 @@
       "due_date": "2025-10-10",
       "observations": "Mês de Outubro",
       "category_id": 7,
-      "is_paid": false,
-      "payment_date": null,
+      "is_paid": true,
+      "payment_date": "2025-10-03",
       "reference_month": 10,
       "reference_year": 2025,
-      "id": 2
+      "id": 2,
+      "category_name": "educação"
     },
     {
       "bill_description": "Conta de água",
       "bill_value": 38.8,
       "due_date": "2025-10-08",
       "category_id": 3,
-      "is_paid": false,
-      "payment_date": null,
+      "is_paid": true,
+      "payment_date": "2025-10-03",
       "reference_month": 10,
       "reference_year": 2025,
       "id": 3,
       "category_name": "água"
+    },
+    {
+      "bill_description": "Academia",
+      "bill_value": 80,
+      "due_date": "2025-11-03",
+      "category_id": 9,
+      "is_paid": true,
+      "payment_date": "2025-10-03",
+      "reference_month": 11,
+      "reference_year": 2025,
+      "id": 4,
+      "category_name": "fitness"
+    },
+    {
+      "bill_description": "Academia",
+      "bill_value": 80,
+      "due_date": "2025-12-03",
+      "category_id": 9,
+      "is_paid": false,
+      "payment_date": null,
+      "reference_month": 12,
+      "reference_year": 2025,
+      "id": 5
     }
   ]
 }

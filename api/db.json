@@ -94,6 +94,17 @@
       "reference_month": 12,
       "reference_year": 2025,
       "id": 5
+    },
+    {
+      "bill_description": "Pagamento Montador",
+      "bill_value": 220,
+      "due_date": "2025-10-04",
+      "category_id": 8,
+      "is_paid": false,
+      "payment_date": null,
+      "reference_month": 10,
+      "reference_year": 2025,
+      "id": 6
     }
   ]
 }

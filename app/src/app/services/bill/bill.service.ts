@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Bill } from 'src/app/models/bill.model';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -35,5 +35,17 @@ export class BillService {
 
   update(bill: Bill): Observable<Bill> {
     return this.http.put<Bill>(`${this.apiUrl}/${bill.id}`, bill);
+  }
+
+  getTotalOfBills(): Observable<number> {
+    const params = new HttpParams().set('_limit', '1');
+
+    return this.http.get<any>(this.apiUrl, { params, observe: 'response' })
+      .pipe(
+        map(response => {
+          const totalCountHeader = response.headers.get('X-Total-Count');
+          return totalCountHeader ? +totalCountHeader : 0;
+        })
+      );
   }
 }

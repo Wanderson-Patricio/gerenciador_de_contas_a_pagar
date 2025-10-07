@@ -18,6 +18,7 @@ export class BillListComponent implements OnInit {
   limit: number = 5;
   query: Query = {} as Query;
   isFilterApplied: boolean = false;
+  totalOfItens: number = 0;
 
   // Flag para controlar se há mais dados para carregar
   hasMorePages: boolean = true;
@@ -39,9 +40,26 @@ export class BillListComponent implements OnInit {
     this.loadBills();
   }
 
+  // validateQuery(): any{
+  //   let query: Query = {} as Query;
+  //   if(this.query.category_id !== null){
+  //     query.category_id = this.query.category_id;
+  //   }
+  //   if(this.query.is_paid !== null){
+  //     query.is_paid = this.query.is_paid;
+  //   }
+  //   query.reference_month = this.query.reference_month;
+  //   query.reference_year = this.query.reference_year;
+
+  //   return query;
+  // }
+
   // Método centralizado para carregar os dados
   loadBills(): void {
     const query = this.isFilterApplied ? this.query : {};
+    this.service.getTotalOfBills().subscribe((totalOfItens) => {
+      this.totalOfItens = totalOfItens;
+    })
     this.service
       .list(this.currentPage, this.limit, query)
       .pipe(
@@ -116,7 +134,7 @@ export class BillListComponent implements OnInit {
     return this.router.url !== '/update-bill';
   }
 
-  showFilters(): boolean{
-    return this.router.url !== '/unpaid-list'
+  showFilters(): boolean {
+    return this.router.url !== '/unpaid-list';
   }
 }

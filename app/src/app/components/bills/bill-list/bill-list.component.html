@@ -10,6 +10,19 @@
               type="radio"
               name="paidStatus"
               id="statusUnpaid"
+              [value]="null"
+              [(ngModel)]="query.is_paid"
+            />
+            <label class="form-check-label" for="statusUnpaid">
+              Todas
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="paidStatus"
+              id="statusUnpaid"
               [value]="false"
               [(ngModel)]="query.is_paid"
             />
@@ -150,6 +163,7 @@
           <option [ngValue]="5">5</option>
           <option [ngValue]="10">10</option>
           <option [ngValue]="20">20</option>
+          <option [ngValue]="totalOfItens">Mostrar todos</option>
         </select>
       </div>
 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +16,10 @@ import { CategoryListComponent } from './components/categories/category-list/cat
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UnpaidListComponent } from './components/unpaid-list/unpaid-list.component';
-import { AnaliseComponent } from './components/analise/analise.component';
+import { PizzaChartComponent } from './components/analise/pizza-chart/pizza-chart.component';
+import { MainPageComponent } from './components/analise/main-page/main-page.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BarChartComponent } from './components/analise/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -32,15 +35,19 @@ import { AnaliseComponent } from './components/analise/analise.component';
     CategoryListComponent,
     HomepageComponent,
     UnpaidListComponent,
-    AnaliseComponent
+    PizzaChartComponent,
+    MainPageComponent,
+    BarChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}

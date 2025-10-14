@@ -10,7 +10,7 @@ import { DeleteBillComponent } from './components/bills/delete-bill/delete-bill.
 import { UpdateCategoryComponent } from './components/categories/update-category/update-category.component';
 import { DeleteCategoryComponent } from './components/categories/delete-category/delete-category.component';
 import { UnpaidListComponent } from './components/unpaid-list/unpaid-list.component';
-import { AnaliseComponent } from './components/analise/analise.component';
+import { MainPageComponent } from './components/analise/main-page/main-page.component';
 
 const routes: Routes = [
   {
@@ -60,7 +60,7 @@ const routes: Routes = [
   },
   {
     path: 'analise',
-    component: AnaliseComponent
+    component: MainPageComponent
   }
 ];
 

@@ -34,32 +34,24 @@ export class BillListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.catService.list(1, 100).subscribe((categories) => {
+    let totalOfCategories: number = 100;
+    this.catService.getTotalOfCategories().subscribe((totalOfCat) => {
+      totalOfCategories = totalOfCat;
+    })
+
+    this.catService.list(1, totalOfCategories).subscribe((categories) => {
       this.categories = categories;
     });
     this.loadBills();
   }
 
-  // validateQuery(): any{
-  //   let query: Query = {} as Query;
-  //   if(this.query.category_id !== null){
-  //     query.category_id = this.query.category_id;
-  //   }
-  //   if(this.query.is_paid !== null){
-  //     query.is_paid = this.query.is_paid;
-  //   }
-  //   query.reference_month = this.query.reference_month;
-  //   query.reference_year = this.query.reference_year;
-
-  //   return query;
-  // }
-
-  // Método centralizado para carregar os dados
+  
   loadBills(): void {
     const query = this.isFilterApplied ? this.query : {};
-    this.service.getTotalOfBills().subscribe((totalOfItens) => {
+    this.service.getTotalOfBills(this.query).subscribe((totalOfItens) => {
       this.totalOfItens = totalOfItens;
     })
+
     this.service
       .list(this.currentPage, this.limit, query)
       .pipe(

@@ -35,76 +35,37 @@
   ],
   "bills": [
     {
-      "id": 1,
       "bill_description": "Aluguel",
       "bill_value": 900,
-      "is_paid": true,
-      "payment_date": "2025-10-03",
-      "due_date": "15-10-2025",
-      "reference_month": 10,
-      "reference_year": 2025,
+      "due_date": "2025-10-15",
       "category_id": 4,
-      "observations": "",
-      "category_name": "aluguel"
+      "is_paid": false,
+      "payment_date": null,
+      "reference_month": 10,
+      "reference_year": 2025,
+      "id": 1
     },
     {
+      "bill_description": "Internet",
+      "bill_value": 105.8,
+      "due_date": "2025-10-21",
+      "category_id": 1,
+      "is_paid": false,
+      "payment_date": null,
+      "reference_month": 10,
+      "reference_year": 2025,
+      "id": 2
+    },
+    {
+      "bill_value": 325.14,
       "bill_description": "Mensalidade Estácio",
-      "bill_value": 192,
       "due_date": "2025-10-10",
-      "observations": "Mês de Outubro",
       "category_id": 7,
-      "is_paid": true,
-      "payment_date": "2025-10-03",
-      "reference_month": 10,
-      "reference_year": 2025,
-      "id": 2,
-      "category_name": "educação"
-    },
-    {
-      "bill_description": "Conta de água",
-      "bill_value": 38.8,
-      "due_date": "2025-10-08",
-      "category_id": 3,
-      "is_paid": true,
-      "payment_date": "2025-10-03",
-      "reference_month": 10,
-      "reference_year": 2025,
-      "id": 3,
-      "category_name": "água"
-    },
-    {
-      "bill_description": "Academia",
-      "bill_value": 80,
-      "due_date": "2025-11-03",
-      "category_id": 9,
-      "is_paid": true,
-      "payment_date": "2025-10-03",
-      "reference_month": 11,
-      "reference_year": 2025,
-      "id": 4,
-      "category_name": "fitness"
-    },
-    {
-      "bill_description": "Academia",
-      "bill_value": 80,
-      "due_date": "2025-12-03",
-      "category_id": 9,
-      "is_paid": false,
-      "payment_date": null,
-      "reference_month": 12,
-      "reference_year": 2025,
-      "id": 5
-    },
-    {
-      "bill_description": "Pagamento Montador",
-      "bill_value": 220,
-      "due_date": "2025-10-04",
-      "category_id": 8,
       "is_paid": false,
       "payment_date": null,
       "reference_month": 10,
       "reference_year": 2025,
-      "id": 6
+      "id": 3
     }
   ]
 }

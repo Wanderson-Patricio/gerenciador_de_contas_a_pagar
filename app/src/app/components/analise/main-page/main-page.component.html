@@ -1,0 +1,136 @@
+<div class="container mt-5 box-shadow">
+  <div class="row mb-4 space-around">
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="categorySelector">Categoria:</label>
+        <select
+          id="categorySelector"
+          class="form-control"
+          [(ngModel)]="query.category_id"
+        >
+          <option [ngValue]="null">Todas as Categorias</option>
+          <option *ngFor="let category of categories" [ngValue]="category.id">
+            {{ category.category_name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="monthInput">Mês:</label>
+        <input
+          type="number"
+          id="monthInput"
+          class="form-control"
+          [(ngModel)]="query.reference_month"
+          min="1"
+          max="12"
+          placeholder="Mês"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="yearInput">Ano:</label>
+        <input
+          type="number"
+          id="yearInput"
+          class="form-control"
+          [(ngModel)]="query.reference_year"
+          placeholder="Ano"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-2 d-flex align-items-end">
+      <button class="btn btn-primary box-shadow" (click)="applyFilters()">
+        Aplicar Filtros
+      </button>
+    </div>
+  </div>
+
+  <div class="row text-center space-around">
+    <div class="col-md-3 mb-3 item">
+      <div class="card box-shadow rem1">
+        <div class="card-body">
+          <h5 class="card-title">Total de Contas</h5>
+          <p class="card-text fs-4">{{ info.totalItens }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3 item">
+      <div class="card box-shadow rem1 green-text">
+        <div class="card-body">
+          <h5 class="card-title">Contas Pagas</h5>
+          <p class="card-text fs-4">{{ info.itensPaid }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3 item">
+      <div class="card box-shadow rem1 red-text">
+        <div class="card-body">
+          <h5 class="card-title">Contas a Pagar</h5>
+          <p class="card-text fs-4">{{ info.itensNotPaid }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3 item">
+      <div class="card box-shadow rem1 green-text">
+        <div class="card-body">
+          <h5 class="card-title">% Pago</h5>
+          <p class="card-text fs-4">{{ info.itensPercentage }}%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-center space-around">
+    <div class="col-md-3 mb-3 item">
+      <div class="card box-shadow rem1">
+        <div class="card-body">
+          <h5 class="card-title">Valor Total</h5>
+          <p class="card-text fs-4">R$ {{ info.totalValue }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3 item">
+      <div class="card box-shadow rem1">
+        <div class="card-body green-text">
+          <h5 class="card-title">Valor Pago</h5>
+          <p class="card-text fs-4">R$ {{ info.totalPaid }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3 item">
+      <div class="card box-shadow rem1">
+        <div class="card-body red-text">
+          <h5 class="card-title">Valor Pendente</h5>
+          <p class="card-text fs-4">R$ {{ info.totalPending }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3 item">
+      <div class="card box-shadow rem1">
+        <div class="card-body green-text">
+          <h5 class="card-title">% Pago</h5>
+          <p class="card-text fs-4">{{ info.paidPercentage }}%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-md-3" style="margin-left: 2rem">
+      <app-pizza-chart
+        [paidValue]="info.totalPaid"
+        [pendingValue]="info.totalPending"
+      >
+      </app-pizza-chart>
+    </div>
+    <div class="col-md-3" style="margin-left: 20rem">
+      <app-bar-chart [data]="monthsData"> </app-bar-chart>
+    </div>
+  </div>
+</div>

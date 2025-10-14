@@ -37,8 +37,13 @@ export class BillService {
     return this.http.put<Bill>(`${this.apiUrl}/${bill.id}`, bill);
   }
 
-  getTotalOfBills(): Observable<number> {
-    const params = new HttpParams().set('_limit', '1');
+  getTotalOfBills(query: any): Observable<number> {
+    let params = new HttpParams().set('_limit', '1');
+    for(const key in query){
+      if(query.hasOwnProperty(key)){
+        params = params.set(key, query[key].toString())
+      }
+    }
 
     return this.http.get<any>(this.apiUrl, { params, observe: 'response' })
       .pipe(

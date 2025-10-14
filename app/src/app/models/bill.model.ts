@@ -8,6 +8,6 @@ export interface Bill {
   reference_month: number;
   reference_year: number;
   category_id: number;
-  observations: string;
+  observations: string | null;
   category_name?: string;
 }

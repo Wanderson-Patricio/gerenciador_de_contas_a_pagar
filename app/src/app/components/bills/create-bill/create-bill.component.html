@@ -19,12 +19,14 @@
       <div class="col-md-6 mb-3">
         <label for="bill_value" class="form-label">Valor</label>
         <input
-          type="number"
+          type="text"
           class="form-control"
           id="bill_value"
           name="bill_value"
-          placeholder="R$ 0.00"
-          [(ngModel)]="bill.bill_value"
+          [(ngModel)]="formattedValue"
+          (input)="onInputChange($event)"
+          (keydown)="onKeyDown($event)"
+          placeholder="R$ 0,00"
           required
         />
       </div>
@@ -44,7 +46,13 @@
     <div class="row">
       <div class="mb-3">
         <label for="bill_id" class="form-label">Categoria</label>
-        <select class="form-select" id="categorie" name="categorie" [(ngModel)]="category_id" required>
+        <select
+          class="form-select"
+          id="categorie"
+          name="categorie"
+          [(ngModel)]="category_id"
+          required
+        >
           <!-- <option value="">Selecione uma categoria</option> -->
           <div *ngFor="let category of categories">
             <option [value]="category.id">{{ category.category_name }}</option>

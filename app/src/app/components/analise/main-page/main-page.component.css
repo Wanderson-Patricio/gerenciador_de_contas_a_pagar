@@ -1,0 +1,31 @@
+.container{
+    width: 100%;
+}
+
+.rem1{
+    font-size: 1rem;
+}
+
+.item{
+    width: 20%;
+}
+
+.card-title{
+    font-weight: 800;
+}
+
+.card-text{
+    font-weight: 400;
+}
+
+.green-text{
+    color: green;
+}
+
+.red-text{
+    color: red;
+}
+
+.space-around{
+    justify-content: space-around;
+}

@@ -53,11 +53,11 @@ export class MainPageComponent implements OnInit {
   }
 
   loadBills(): void {
-    const query = this.isFilterApplied ? this.query : {};
+    const query: Query = this.isFilterApplied ? this.query : ({} as Query);
     this.service.list(1, this.totalOfItens, query).subscribe((bills) => {
       this.bills = bills;
       this.updateAnalise();
-      this.getMonthsData();
+      this.getMonthsData(query.category_id ? query.category_id : null);
     });
   }
 
@@ -119,7 +119,7 @@ export class MainPageComponent implements OnInit {
         : 0;
   }
 
-  getMonthsData(): void {
+  getMonthsData(category_id: number | null | undefined): void {
     const now = new Date();
     const currentMonth = now.getMonth() + 1;
     const currentYear = now.getFullYear();
@@ -133,18 +133,25 @@ export class MainPageComponent implements OnInit {
       requests.push(
         this.service.getTotalOfBills({}).pipe(
           switchMap((total) => {
-            return this.service
-              .list(1, total, {
-                reference_month: month,
-                reference_year: currentYear - 1,
-              })
-              .pipe(
-                map((monthBills) => ({
-                  name: `${month}/${currentYear - 1}`,
-                  value:
-                    monthBills.reduce((acc, x) => acc + x.bill_value, 0) || 0,
-                }))
-              );
+            const query =
+              category_id !== null
+                ? {
+                    category_id,
+                    reference_month: month,
+                    reference_year: currentYear - 1,
+                  }
+                : {
+                    reference_month: month,
+                    reference_year: currentYear - 1,
+                  };
+
+            return this.service.list(1, total, query).pipe(
+              map((monthBills) => ({
+                name: `${month}/${currentYear - 1}`,
+                value:
+                  monthBills.reduce((acc, x) => acc + x.bill_value, 0) || 0,
+              }))
+            );
           })
         )
       );
@@ -155,11 +162,20 @@ export class MainPageComponent implements OnInit {
       requests.push(
         this.service.getTotalOfBills({}).pipe(
           switchMap((total) => {
+            const query =
+              category_id !== null
+                ? {
+                    category_id,
+                    reference_month: month,
+                    reference_year: currentYear,
+                  }
+                : {
+                    reference_month: month,
+                    reference_year: currentYear,
+                  };
+
             return this.service
-              .list(1, total, {
-                reference_month: month,
-                reference_year: currentYear,
-              })
+              .list(1, total, query)
               .pipe(
                 map((monthBills) => ({
                   name: `${month}/${currentYear}`,

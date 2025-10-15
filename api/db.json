@@ -31,6 +31,14 @@
     {
       "category_name": "fitness",
       "id": 9
+    },
+    {
+      "category_name": "cartão de crédito",
+      "id": 10
+    },
+    {
+      "category_name": "farmácia",
+      "id": 11
     }
   ],
   "bills": [
@@ -39,11 +47,12 @@
       "bill_value": 900,
       "due_date": "2025-10-15",
       "category_id": 4,
-      "is_paid": false,
-      "payment_date": null,
+      "is_paid": true,
+      "payment_date": "2025-10-15",
       "reference_month": 10,
       "reference_year": 2025,
-      "id": 1
+      "id": 1,
+      "category_name": "aluguel"
     },
     {
       "bill_description": "Internet",
@@ -66,6 +75,55 @@
       "reference_month": 10,
       "reference_year": 2025,
       "id": 3
+    },
+    {
+      "bill_value": 100,
+      "bill_description": "Recarga Cartão Top",
+      "due_date": "2025-10-14",
+      "category_id": 6,
+      "is_paid": true,
+      "payment_date": "2025-10-15",
+      "reference_month": 10,
+      "reference_year": 2025,
+      "id": 4,
+      "category_name": "transporte"
+    },
+    {
+      "bill_value": 31.5,
+      "bill_description": "Benegrip",
+      "due_date": "2025-10-14",
+      "category_id": 11,
+      "is_paid": true,
+      "payment_date": "2025-10-15",
+      "reference_month": 10,
+      "reference_year": 2025,
+      "id": 5,
+      "category_name": "farmácia"
+    },
+    {
+      "bill_value": 53.74,
+      "bill_description": "Internet Celular",
+      "due_date": "2025-10-15",
+      "category_id": 1,
+      "is_paid": true,
+      "payment_date": "2025-10-15",
+      "reference_month": 10,
+      "reference_year": 2025,
+      "id": 6,
+      "category_name": "internet"
+    },
+    {
+      "bill_value": 3.84,
+      "bill_description": "Fatura Nubank",
+      "due_date": "2025-10-16",
+      "observations": "Juros anterior",
+      "category_id": 10,
+      "is_paid": true,
+      "payment_date": "2025-10-15",
+      "reference_month": 10,
+      "reference_year": 2025,
+      "id": 7,
+      "category_name": "cartão de crédito"
     }
   ]
 }

@@ -10,15 +10,15 @@ services:
     volumes:
       - ./api:/api
   
-  # app:
-  #   image: bill_app:1.0.0
-  #   container_name: bill_app_container
-  #   networks:
-  #     - net_bill_manager
-  #   ports:
-  #     - 4200:4200
-  #   depends_on:
-  #     - api
+  app:
+    image: bill_app:1.0.0
+    container_name: bill_app_container
+    networks:
+      - net_bill_manager
+    ports:
+      - 4200:4200
+    depends_on:
+      - api
 
 networks:
   net_bill_manager:
